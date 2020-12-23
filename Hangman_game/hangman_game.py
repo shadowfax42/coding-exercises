@@ -73,15 +73,12 @@ def get_available_letters(letters_guessed_list):
 	return letters_not_guessed
 
 
-if __name__ == '__main__':
+def hangman(file):
 
-	# input file with words to use
-	file_name = "words.txt"
-	words = load_words(file_name)
+	words = load_words(file)
 	chosen_word = choose_word(words)
 	guess_counter = len(chosen_word)
 	letters_guessed = []
-
 	print("Welcome to the game of Hangman!")
 	print(f'I am thinking of a word  that is {len(chosen_word)} letters long')
 
@@ -106,6 +103,13 @@ if __name__ == '__main__':
 		if is_word_guessed(chosen_word, letters_guessed):
 			print("Congratulations, you won!")
 			break
+
+
+if __name__ == '__main__':
+
+	# input file with words to use
+	file_name = "words.txt"
+	hangman(file_name)
 
 
 

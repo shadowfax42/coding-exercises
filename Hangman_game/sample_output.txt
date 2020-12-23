@@ -1,0 +1,43 @@
+Loading word list from file...
+55900 words loaded.
+Welcome to the game of Hangman!
+I am thinking of a word  that is 10 letters long
+Please guess a letter: t
+Good guess -----t----
+---------------------------------------
+Please guess a letter: a
+Good guess a----ta---
+---------------------------------------
+Please guess a letter: i
+Good guess a--i-ta---
+---------------------------------------
+Please guess a letter: m
+Oops! That letter is not in my word a--i-ta---
+---------------------------------------
+You have 9 guesses left
+Available Letters: bcdefghjklnopqrsuvwxyz
+Please guess a letter: n
+Good guess a--i-tan--
+---------------------------------------
+Please guess a letter: b
+Oops! That letter is not in my word a--i-tan--
+---------------------------------------
+You have 8 guesses left
+Available Letters: cdefghjklopqrsuvwxyz
+Please guess a letter: d
+Oops! That letter is not in my word a--i-tan--
+---------------------------------------
+You have 7 guesses left
+Available Letters: cefghjklopqrsuvwxyz
+Please guess a letter: s
+Good guess assistan--
+---------------------------------------
+Please guess a letter: c
+Good guess assistanc-
+---------------------------------------
+Please guess a letter: e
+Good guess assistance
+---------------------------------------
+Congratulations, you won!
+
+Process finished with exit code 0
