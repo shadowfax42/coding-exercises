@@ -1,43 +1,48 @@
 Loading word list from file...
 55900 words loaded.
 Welcome to the game of Hangman!
-I am thinking of a word  that is 10 letters long
-Please guess a letter: t
-Good guess -----t----
----------------------------------------
-Please guess a letter: a
-Good guess a----ta---
----------------------------------------
-Please guess a letter: i
-Good guess a--i-ta---
----------------------------------------
-Please guess a letter: m
-Oops! That letter is not in my word a--i-ta---
----------------------------------------
-You have 9 guesses left
-Available Letters: bcdefghjklnopqrsuvwxyz
-Please guess a letter: n
-Good guess a--i-tan--
----------------------------------------
-Please guess a letter: b
-Oops! That letter is not in my word a--i-tan--
----------------------------------------
-You have 8 guesses left
-Available Letters: cdefghjklopqrsuvwxyz
-Please guess a letter: d
-Oops! That letter is not in my word a--i-tan--
----------------------------------------
-You have 7 guesses left
-Available Letters: cefghjklopqrsuvwxyz
-Please guess a letter: s
-Good guess assistan--
----------------------------------------
-Please guess a letter: c
-Good guess assistanc-
----------------------------------------
+I am thinking of a word  that is 7 letters long
 Please guess a letter: e
-Good guess assistance
----------------------------------------
+Good guess --e--e-
+Available Letters: abcdfghijklmnopqrstuvwxyz
+**********************************************************
+Please guess a letter: b
+Oops! That letter is not in my word --e--e-
+**********************************************************
+You have 6 guesses left
+Available Letters: acdfghijklmnopqrstuvwxyz
+Please guess a letter: t
+Oops! That letter is not in my word --e--e-
+**********************************************************
+You have 5 guesses left
+Available Letters: acdfghijklmnopqrsuvwxyz
+Please guess a letter: d
+Good guess --e-ded
+Available Letters: acfghijklmnopqrsuvwxyz
+**********************************************************
+Please guess a letter: s
+Oops! That letter is not in my word --e-ded
+**********************************************************
+You have 4 guesses left
+Available Letters: acfghijklmnopqruvwxyz
+Please guess a letter: v
+Oops! That letter is not in my word --e-ded
+**********************************************************
+You have 3 guesses left
+Available Letters: acfghijklmnopqruwxyz
+Please guess a letter: l
+Good guess -le-ded
+Available Letters: acfghijkmnopqruwxyz
+**********************************************************
+Please guess a letter: a
+Good guess -leaded
+Available Letters: cfghijkmnopqruwxyz
+**********************************************************
+Please guess a letter: p
+Good guess pleaded
+Available Letters: cfghijkmnoqruwxyz
+**********************************************************
 Congratulations, you won!
+Your total score is: 15
 
 Process finished with exit code 0

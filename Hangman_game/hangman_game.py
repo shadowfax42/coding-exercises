@@ -1,9 +1,8 @@
 """
 Project: Hangman game
 Author: Siham Elmali
-Date: December 2020
-Status: Still a work in progress
-
+Date: December 23rd, 2020
+Status: working on improvements whenever I have a chance
 """
 import random
 import string
@@ -13,7 +12,7 @@ import string
 def load_words(file):
 	"""
 	:param file: input file with bunch of words
-	:return: return a list of words
+	:return: a list of words
 	"""
 	with open(file, "r") as f:
 		print("Loading word list from file...")
@@ -33,8 +32,8 @@ def choose_word(words_list):
 
 def is_word_guessed(secret_word, letters_guessed_list):
 	"""
-	:param letters_guessed_list:
-	:param secret_word:
+	:param letters_guessed_list: a list of letters
+	:param secret_word: a string
 	:return: True if the word is guessed and False if it's not
 	"""
 	answer = ''
@@ -49,9 +48,10 @@ def is_word_guessed(secret_word, letters_guessed_list):
 
 def get_guessed_word(secret_word, letters_guessed_list):
 	"""
-	:param letters_guessed_list:
-	:param secret_word:
-	:return:
+	:param letters_guessed_list: a list of letters
+	:param secret_word: a string
+	:return:  a string that is comprised of letters and underscores, based
+	on what letters in letters_guessed_list are in ​secret_word.
 	"""
 	output_str = []
 	for index, letter in enumerate(secret_word):
@@ -64,8 +64,8 @@ def get_guessed_word(secret_word, letters_guessed_list):
 
 def get_available_letters(letters_guessed_list):
 	"""
-	:param letters_guessed_list:
-	:return: string of letters not yet guessed by the user
+	:param letters_guessed_list: a list of letters
+	:return: string of letters that are not yet guessed by the user
 	"""
 	english_alphabet = string.ascii_lowercase
 
@@ -75,33 +75,49 @@ def get_available_letters(letters_guessed_list):
 
 def hangman(file):
 
+	# load the word file
 	words = load_words(file)
+
+	# choose a word from the list randomly
 	chosen_word = choose_word(words)
-	guess_counter = len(chosen_word)
+
+	# set remaining guesses as the length of the word picked
+	guesses_remaining = len(chosen_word)
+
+	# initialize an empty list
 	letters_guessed = []
+
+	# print game welcome
 	print("Welcome to the game of Hangman!")
 	print(f'I am thinking of a word  that is {len(chosen_word)} letters long')
 
 	while True:
+
+		# get user input
 		user_input = input("Please guess a letter: ")
+
+		# append user input to the letters guessed list
 		letters_guessed.append(user_input)
+
 		if user_input in chosen_word:
 			print(f'Good guess {get_guessed_word(chosen_word, letters_guessed)}')
-			print("---------------------------------------")
+			print(f"Available Letters: {get_available_letters(letters_guessed)}")
+			print("**********************************************************")
 		else:
 			print(f'Oops! That letter is not in my word {get_guessed_word(chosen_word, letters_guessed)}')
-			print("---------------------------------------")
-			guess_counter -= 1
-			print(f'You have {guess_counter} guesses left')
+			print("**********************************************************")
+			guesses_remaining -= 1
+			print(f'You have {guesses_remaining} guesses left')
 			print(f"Available Letters: {get_available_letters(letters_guessed)}")
 
-		if guess_counter == 0:
-			print("GAME OVER!")
-			print("The correct word is: ", chosen_word)
+		if guesses_remaining == 0:
+			print("GAME OVER! YOU LOST")
+			print("The secret word is: ", chosen_word)
 			break
 
 		if is_word_guessed(chosen_word, letters_guessed):
 			print("Congratulations, you won!")
+			print(f"Your total score is: {guesses_remaining * len(set(chosen_word))}")
 			break
 
 
@@ -109,7 +125,13 @@ if __name__ == '__main__':
 
 	# input file with words to use
 	file_name = "words.txt"
+
+	# call the main function
 	hangman(file_name)
 
-
-
+	while True:
+		user_ans = input("Do you want to play again? type yes or no: ")
+		if user_ans.lower() == "yes":
+			hangman(file_name)
+		else:
+			break
